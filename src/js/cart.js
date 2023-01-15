@@ -29,7 +29,7 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: ${item.Qty}</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__price">$${item.FinalPrice * item.Qty}</p>
   <span class="cart-card__remove" type="button" data-id=${item.Id}> ❌</span>
   </li>`;
 
