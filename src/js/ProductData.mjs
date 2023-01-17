@@ -9,7 +9,7 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `https://raw.githubusercontent.com/Jeremy-Diamond/CIT330_Winter2023/main/src/json/${this.category}.json`;
   }
   getData() {
     return fetch(this.path)
@@ -20,4 +20,4 @@ export default class ProductData {
     const products = await this.getData();
     return products.find((item) => item.Id === id);
   }
-}
+} 
