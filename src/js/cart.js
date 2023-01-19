@@ -3,12 +3,9 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  const htmlItemsTotal = cartItems.map((item) => cartTotalTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  document.querySelector(".product-total").innerHTML = htmlItemsTotal.join("");
-
+ 
   // Add listeners to buttons
-
   let removeFromCartListener = document.querySelectorAll(".cart-card__remove");
   removeFromCartListener.forEach((element) =>
     element.addEventListener("click", function (e) {
@@ -48,14 +45,31 @@ function removeFromCart(id) {
   renderCartContents();
 }
 
-function cartTotalTemplate(item) {
-  const newItem = `<div class="cart-footer hide">
-  <p class="cart-total">Total: </p>
-  </div>`;
+function getCartTotal(){
+  // Check if there is a cart in local storage
+  if (localStorage.getItem("so-cart")) {
+    let cart = JSON.parse(localStorage.getItem("so-cart"));
+    let total = 0;
 
-  return newItem;
+    // Iterate through the cart items
+    for (let i = 0; i < cart.length; i++) {
+      total += parseFloat(cart[i].FinalPrice * cart[i].Qty);
+      cart.total = total;
+      localStorage.setItem("so-cart", JSON.stringify(cart));   
+        
+    }
+    function cartTotalTemplate() {
+      const newItem = `<div class="cart-footer hide">
+      <p class="cart-total">Total: $${total}</p>
+      </div>`;
+    
+      return newItem;
+    } 
+    document.querySelector(".product-list").innerHTML = cartTotalTemplate();
+  }     
 }
 
 renderCartContents();
+getCartTotal();
 
 
