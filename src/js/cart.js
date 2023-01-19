@@ -3,7 +3,9 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  const htmlItemsTotal = cartItems.map((item) => cartTotalTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".product-total").innerHTML = htmlItemsTotal.join("");
 
   // Add listeners to buttons
 
@@ -46,4 +48,14 @@ function removeFromCart(id) {
   renderCartContents();
 }
 
+function cartTotalTemplate(item) {
+  const newItem = `<div class="cart-footer hide">
+  <p class="cart-total">Total: </p>
+  </div>`;
+
+  return newItem;
+}
+
 renderCartContents();
+
+
