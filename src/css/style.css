@@ -217,6 +217,14 @@ button {
 }
 
 /* End cart list card styles */
+
+
+/* Start Cart footer style*/
+.hide-cart-total{
+  visibility: hidden;
+}
+/* End Cart footer style*/
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
