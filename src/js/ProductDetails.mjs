@@ -53,11 +53,6 @@ export default class ProductDetails {
 
   addToCart() {
     let cart = getLocalStorage("so-cart");
-    let cartIcon = document.querySelector(".cardIcon");
-    cartIcon.classList.add("animateIcon");
-    setTimeout(function(){
-      cartIcon.classList.remove("animateIcon");
-  }, 1000);
     //Add Product if cart is empty
     if (cart === null) {
       cart = this.product;
@@ -79,7 +74,16 @@ export default class ProductDetails {
       this.product.Qty = 1;
       cart = [this.product].concat(cart);
     }
+    
+    //add cart adjustments to local storage
     setLocalStorage("so-cart", cart);
+    
+    // Spin Cart backpact so user knows something happened. 
+    let cartIcon = document.querySelector(".cardIcon");
+    cartIcon.classList.add("animateIcon");
+    setTimeout(function(){
+      cartIcon.classList.remove("animateIcon");
+  }, 1000);
   }
   
   renderProductDetails(selector) {

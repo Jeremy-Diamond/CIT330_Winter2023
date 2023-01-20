@@ -36,7 +36,7 @@ function cartItemTemplate(item) {
   <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <div>
+  <div class="cart-card__quantity">
   Qty:  
   <input class="item-quantity" type="number" value=${item.Qty} min=1 data-id=${
     item.Id
@@ -79,9 +79,8 @@ function getCartTotal() {
       localStorage.setItem("so-cart", JSON.stringify(cart));
     }
 
-
     let cartTotal = document.querySelector(".cart-total");
-    cartTotal.innerHTML = `Total $${total}`;
+    cartTotal.innerHTML = `Total $${total.toFixed(2)}`;
 
     //Show or hide  total based on total
     if (total > 0) {
