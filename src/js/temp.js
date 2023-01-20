@@ -3,17 +3,18 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  const htmlItemsTotal = cartItems.map((item) => cartTotalTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".product-total").innerHTML = htmlItemsTotal.join("");
 
   // Add listeners to buttons
+
   let removeFromCartListener = document.querySelectorAll(".cart-card__remove");
   removeFromCartListener.forEach((element) =>
     element.addEventListener("click", function (e) {
       removeFromCart(e.target.dataset.id);
     })
   );
-
-  getCartTotal();
 
   let changeItemQuantity = document.querySelectorAll(".item-quantity");
   changeItemQuantity.forEach((element) =>
@@ -62,34 +63,17 @@ function removeFromCart(id) {
 function updateItemQuantity(id, value) {
   const cartItems = getLocalStorage("so-cart");
   cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = value;
+  cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = value;
   setLocalStorage("so-cart", cartItems);
   renderCartContents();
 }
 
-function getCartTotal() {
-  // Check if there is a cart in local storage
-  if (localStorage.getItem("so-cart")) {
-    let cart = JSON.parse(localStorage.getItem("so-cart"));
-    let total = 0;
+function cartTotalTemplate(item) {
+  const newItem = `<div class="cart-footer hide">
+  <p class="cart-total">Total: </p>
+  </div>`;
 
-    // Iterate through the cart items
-    for (let i = 0; i < cart.length; i++) {
-      total += parseFloat(cart[i].FinalPrice * cart[i].Qty);
-      cart.total = total;
-      localStorage.setItem("so-cart", JSON.stringify(cart));
-    }
-
-
-    let cartTotal = document.querySelector(".cart-total");
-    cartTotal.innerHTML = `Total $${total}`;
-
-    //Show or hide  total based on total
-    if (total > 0) {
-      cartTotal.classList.remove("hide-cart-total");
-    } else {
-      cartTotal.classList.add("hide-cart-total");
-    }
-  }
+  return newItem;
 }
 
 renderCartContents();
