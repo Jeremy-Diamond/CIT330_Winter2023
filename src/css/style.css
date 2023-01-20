@@ -170,7 +170,6 @@ button {
 
 .card__name {
   font-size: 1em;
-  min-width: 20em;
 }
 /* End product list card */
 
@@ -257,12 +256,6 @@ button {
   visibility: hidden;
 }
 /* End Cart footer style*/
-
-@media screen and (min-width: 840px) {
-  .card__name {
-    min-width: 30em;
-  }
-}
 
 @media screen and (min-width: 500px) {
   body {
