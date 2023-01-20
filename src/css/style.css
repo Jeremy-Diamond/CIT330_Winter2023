@@ -112,6 +112,7 @@ button {
 #items_amount {
   float: right;
 }
+
 .animateIcon {
   animation-name: spin;
   animation-duration: 850ms;
@@ -141,7 +142,7 @@ button {
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: left;
   list-style-type: none;
   padding: 0;
 }
@@ -169,6 +170,7 @@ button {
 
 .card__name {
   font-size: 1em;
+  min-width: 20em;
 }
 /* End product list card */
 
@@ -244,10 +246,23 @@ button {
 /* End cart list card styles */
 
 /* Start Cart footer style*/
+.cart-total {
+  font-size: 1.25em;
+  text-align: right;
+  margin: 10px;
+  position: relative;
+}
+
 .hide-cart-total {
   visibility: hidden;
 }
 /* End Cart footer style*/
+
+@media screen and (min-width: 840px) {
+  .card__name {
+    min-width: 30em;
+  }
+}
 
 @media screen and (min-width: 500px) {
   body {
@@ -259,7 +274,7 @@ button {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 1fr 6fr 0.95fr 0.1fr;
   }
 }
 
