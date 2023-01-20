@@ -12,7 +12,16 @@ function renderCartContents() {
       removeFromCart(e.target.dataset.id);
     })
   );
+
   getCartTotal();
+
+  let changeItemQuantity = document.querySelectorAll(".item-quantity");
+  changeItemQuantity.forEach((element) =>
+    element.addEventListener("change", function (e) {
+      updateItemQuantity(e.target.dataset.id, e.target.value);
+    })
+  );
+
 }
 
 function cartItemTemplate(item) {
@@ -28,8 +37,13 @@ function cartItemTemplate(item) {
   <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: ${item.Qty}</p>
-  <p class="cart-card__price">$${item.FinalPrice * item.Qty}</p>
+  <div>
+  Qty:  
+  <input class="item-quantity" type="number" value=${item.Qty} min=1 data-id=${
+    item.Id
+  }>
+  </div>
+  <p class="cart-card__price">$${(item.FinalPrice * item.Qty).toFixed(2)}</p>
   <span class="cart-card__remove" type="button" data-id=${item.Id}> ❌</span>
   </li>`;
 
@@ -46,11 +60,22 @@ function removeFromCart(id) {
   renderCartContents();
 }
 
+
 function getCartTotal() {
   // Check if there is a cart in local storage
   if (localStorage.getItem("so-cart")) {
     let cart = JSON.parse(localStorage.getItem("so-cart"));
     let total = 0;
+
+function updateItemQuantity(id, value) {
+  const cartItems = getLocalStorage("so-cart");
+  cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = value;
+  cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = value;
+  setLocalStorage("so-cart", cartItems);
+  renderCartContents();
+}
+
+
 
     // Iterate through the cart items
     for (let i = 0; i < cart.length; i++) {
@@ -58,6 +83,7 @@ function getCartTotal() {
       cart.total = total;
       localStorage.setItem("so-cart", JSON.stringify(cart));
     }
+
 
     let cartTotal = document.querySelector(".cart-total");
     cartTotal.innerHTML = `Total $${total}`;
