@@ -4,16 +4,16 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
- 
+
   // Add listeners to buttons
   let removeFromCartListener = document.querySelectorAll(".cart-card__remove");
   removeFromCartListener.forEach((element) =>
     element.addEventListener("click", function (e) {
       removeFromCart(e.target.dataset.id);
     })
-    );
-    getCartTotal();
-  }
+  );
+  getCartTotal();
+}
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
@@ -46,7 +46,7 @@ function removeFromCart(id) {
   renderCartContents();
 }
 
-function getCartTotal(){
+function getCartTotal() {
   // Check if there is a cart in local storage
   if (localStorage.getItem("so-cart")) {
     let cart = JSON.parse(localStorage.getItem("so-cart"));
@@ -56,33 +56,19 @@ function getCartTotal(){
     for (let i = 0; i < cart.length; i++) {
       total += parseFloat(cart[i].FinalPrice * cart[i].Qty);
       cart.total = total;
-      localStorage.setItem("so-cart", JSON.stringify(cart));   
-        
+      localStorage.setItem("so-cart", JSON.stringify(cart));
     }
 
-    /*
-    function cartTotalTemplate() {
-      const newItem = `<div class="cart-footer hide">
-      <p class="cart-total">Total: $${total}</p>
-      </div>`;
-    
-      return newItem;
-    } 
-    */
-   let cartTotal = document.querySelector(".cart-total");
+    let cartTotal = document.querySelector(".cart-total");
     cartTotal.innerHTML = `Total $${total}`;
-    
+
     //Show or hide  total based on total
     if (total > 0) {
-     cartTotal.classList.remove("hide-cart-total");
+      cartTotal.classList.remove("hide-cart-total");
     } else {
       cartTotal.classList.add("hide-cart-total");
-
     }
-  }     
+  }
 }
 
 renderCartContents();
-//getCartTotal();
-
-

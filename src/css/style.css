@@ -218,9 +218,8 @@ button {
 
 /* End cart list card styles */
 
-
 /* Start Cart footer style*/
-.hide-cart-total{
+.hide-cart-total {
   visibility: hidden;
 }
 /* End Cart footer style*/
