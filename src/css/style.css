@@ -109,7 +109,23 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+#items_amount {
+  float: right;
+}
+.animateIcon {
+  animation-name: spin;
+  animation-duration: 850ms;
+  animation-iteration-count: 1;
+}
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* End cart icon styles */
 
 .mission {
