@@ -57,6 +57,7 @@ export default class ProductDetails {
     if (cart === null) {
       cart = this.product;
       cart.Qty = 1; // I set the qty to one for later steps
+      cart = [cart]
     } else if (!Array.isArray(cart)) {
       // If cart has only one item
       if (this.product.Id === cart.Id) {

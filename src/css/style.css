@@ -113,6 +113,10 @@ button {
   float: right;
 }
 
+.emptyCart{
+  text-align: center;
+}
+
 .animateIcon {
   animation-name: spin;
   animation-duration: 850ms;
@@ -127,6 +131,8 @@ button {
     transform: rotate(360deg);
   }
 }
+
+
 /* End cart icon styles */
 
 .mission {
