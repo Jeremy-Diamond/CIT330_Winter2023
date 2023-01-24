@@ -1,3 +1,4 @@
 [
-    {"message": "testing message 1", "background": "darkblue", "color":"white"}
+    {"message": "testing message 1", "background": "darkblue", "color":"white"},
+    {"message": "testing message 2", "background": "red", "color":"black"}
 ]
