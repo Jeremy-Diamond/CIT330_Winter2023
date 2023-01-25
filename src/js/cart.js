@@ -1,4 +1,3 @@
-import { doc } from "prettier";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
@@ -14,7 +13,6 @@ function renderCartContents() {
     })
   );
 
-  
   let changeItemQuantity = document.querySelectorAll(".item-quantity");
   changeItemQuantity.forEach((element) =>
     element.addEventListener("change", function (e) {
@@ -94,15 +92,14 @@ function getCartTotal() {
       <div class="emptyCart">
       <a href="../index.html">
       <p>Oh No it looks like something happened to your cart<p/> 
-      <img src="https://raw.githubusercontent.com/Jeremy-Diamond/CIT330_Winter2023/main/src/images/logos/shopping-cart-300x240.png" alt="Picture of a smashed chopping cart" />
+      <img src="../images/logos/shopping-cart-300x240.png" alt="Picture of a smashed chopping cart" />
       <br>
       <p>Click Here to make a new one!</p>
       </a>
-      <div/>`
+      <div/>`;
     }
   }
 }
 
-renderCartContents
+renderCartContents;
 getCartTotal();
-

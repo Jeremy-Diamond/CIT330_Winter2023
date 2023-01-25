@@ -31,7 +31,8 @@ export default class Alert {
       }
       }
       async getData() {
-        const res = await fetch("https://raw.githubusercontent.com/Jeremy-Diamond/CIT330_Winter2023/main/src/json/alerts.json");
+        const res = await fetch("../json/alerts.json");
+
         const data = await convertToJson(res);
         return data;
       }
