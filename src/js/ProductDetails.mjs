@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, getSuperscript } from "./utils.mjs";
 
 function productTemplate(product) {
   return `<section class="product-detail">
@@ -53,6 +53,9 @@ export default class ProductDetails {
 
   addToCart() {
     let cart = getLocalStorage("so-cart");
+    let IconTotal = getLocalStorage("so-ss");
+    IconTotal += 1;
+    setLocalStorage("so-ss", IconTotal);
     //Add Product if cart is empty
     if (cart === null) {
       cart = this.product;
