@@ -44,3 +44,12 @@ export function renderListWithTemplate(
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function getSuperscript(elementId) {
+  let superscript = getLocalStorage("so-ss");
+  const element = document.getElementById(elementId);
+  const superscriptElement = document.createElement("div");
+  superscriptElement.setAttribute("class", "ss-icon");
+  superscriptElement.innerHTML = superscript;
+  element.appendChild(superscriptElement);
+}
