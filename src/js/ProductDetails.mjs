@@ -85,6 +85,12 @@ export default class ProductDetails {
     setTimeout(function(){
       cartIcon.classList.remove("animateIcon");
   }, 1000);
+
+  // drop the button for fun!!!
+
+  bigDrop()
+
+
   }
   
   renderProductDetails(selector) {
@@ -92,3 +98,18 @@ export default class ProductDetails {
     element.insertAdjacentHTML("afterBegin", productTemplate(this.product));
   }
 }
+
+// Drop button function
+
+function bigDrop() {
+  const dropCartButton = document.querySelector("#addToCart");
+    dropCartButton.classList.add("big-drop")
+    dropCartButton.innerHTML = "Adding to Cart";
+    dropCartButton.addEventListener("animationend", removeClass)
+    function removeClass(){
+        dropCartButton.classList.remove("big-drop")
+        dropCartButton.innerHTML = "Add to Cart"
+    }
+}
+
+
