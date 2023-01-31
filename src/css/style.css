@@ -97,6 +97,13 @@ button {
 /* End utility classes */
 
 /* Cart icon styles */
+#cart-icon {
+  width: 40px;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .cart {
   padding-top: 1em;
   position: relative;
@@ -130,6 +137,17 @@ button {
   to {
     transform: rotate(360deg);
   }
+
+}
+.ss-icon {  
+  width: 30px;
+  height: 30px;
+  font-size: 75%;
+  background-color: #f3a154;  
+  color: black;
+  border-radius: 50%;  
+  padding: 17%;
+  transform: translate(15px, -42px); /* This element has to be after the icon for it to be stacked on top*/
 }
 
 .big-drop {
@@ -145,6 +163,10 @@ button {
 }
 
 
+.ss-icon:hover {
+  background-color: #2ec1ea;
+  color: black;
+}
 /* End cart icon styles */
 
 .mission {

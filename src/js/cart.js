@@ -70,13 +70,17 @@ function getCartTotal() {
   // Check if there is a cart in local storage
   if (localStorage.getItem("so-cart")) {
     let cart = JSON.parse(localStorage.getItem("so-cart"));
+    
     let total = 0;
-
+    let iconTotal = 0;
     // Iterate through the cart items
     for (let i = 0; i < cart.length; i++) {
       total += parseFloat(cart[i].FinalPrice * cart[i].Qty);
-      cart.total = total;
+      iconTotal += parseInt(cart[i].Qty);
+      cart.total = total;      
+      
       localStorage.setItem("so-cart", JSON.stringify(cart));
+      localStorage.setItem("so-ss", iconTotal);
     }
 
     let cartTotal = document.querySelector(".cart-total");
@@ -97,6 +101,7 @@ function getCartTotal() {
       <p>Click Here to make a new one!</p>
       </a>
       <div/>`;
+      localStorage.setItem("so-ss", 0);
     }
   }
 }
