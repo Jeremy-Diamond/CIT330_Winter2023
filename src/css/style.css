@@ -204,6 +204,13 @@ button {
   margin: 0.5em 0;
 }
 
+
+.product-card__discount{
+  margin-left: 20px;
+  color: red;
+  font-weight: bolder;
+}
+
 .card__brand {
   font-size: var(--small-font);
 }
