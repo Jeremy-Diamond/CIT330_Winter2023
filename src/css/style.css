@@ -150,6 +150,19 @@ button {
   transform: translate(15px, -42px); /* This element has to be after the icon for it to be stacked on top*/
 }
 
+.big-drop {
+  animation: drop 1.5s ease-in;
+}
+
+@keyframes drop {
+  0% {transform: rotate(25deg);}
+  20% {transform:rotate(-25deg);}
+  40% {transform: rotate(25deg);}
+  60% { transform: rotate(25deg); top:550px;}
+  100% { transform: rotate(-25deg);top:100%;}
+}
+
+
 .ss-icon:hover {
   background-color: #2ec1ea;
   color: black;
@@ -189,6 +202,13 @@ button {
 .product-card h3,
 .product-card p {
   margin: 0.5em 0;
+}
+
+
+.product-card__discount{
+  margin-left: 20px;
+  color: red;
+  font-weight: bolder;
 }
 
 .card__brand {

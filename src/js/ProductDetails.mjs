@@ -11,9 +11,10 @@ function productTemplate(product) {
           src="${product.Image}"
           alt="${product.NameWithoutBrand}"
         />
-
-        <p class="product-card__price">$${product.FinalPrice}</p>
-
+        
+        <p class="product-card__price">$${product.FinalPrice}
+        <span class="product-card__discount">After a $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)} discount! </span>
+        </p>
         <p class="product__color">${product.Colors[0].ColorName}</p>
 
         <p class="product__description">${product.DescriptionHtmlSimple}</p>
@@ -88,6 +89,12 @@ export default class ProductDetails {
     setTimeout(function(){
       cartIcon.classList.remove("animateIcon");
   }, 1000);
+
+  // drop the button for fun!!!
+
+  bigDrop()
+
+
   }
   
   renderProductDetails(selector) {
@@ -95,3 +102,18 @@ export default class ProductDetails {
     element.insertAdjacentHTML("afterBegin", productTemplate(this.product));
   }
 }
+
+// Drop button function
+
+function bigDrop() {
+  const dropCartButton = document.querySelector("#addToCart");
+    dropCartButton.classList.add("big-drop")
+    dropCartButton.innerHTML = "Adding to Cart";
+    dropCartButton.addEventListener("animationend", removeClass)
+    function removeClass(){
+        dropCartButton.classList.remove("big-drop")
+        dropCartButton.innerHTML = "Add to Cart"
+    }
+}
+
+
