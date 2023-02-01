@@ -150,17 +150,22 @@ button {
   transform: translate(15px, -42px); /* This element has to be after the icon for it to be stacked on top*/
 }
 
-.big-drop {
-  animation: drop 1.5s ease-in;
+/* START Add to cart button animation*/
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-@keyframes drop {
-  0% {transform: rotate(25deg);}
-  20% {transform:rotate(-25deg);}
-  40% {transform: rotate(25deg);}
-  60% { transform: rotate(25deg); top:550px;}
-  100% { transform: rotate(-25deg);top:100%;}
+.addedToCart {
+  animation: fadeOut 0.8s linear forwards;
 }
+
+/* Add to cart button animation END*/
 
 
 .ss-icon:hover {
