@@ -53,3 +53,27 @@ export function getSuperscript(elementId) {
   superscriptElement.innerHTML = superscript;
   element.appendChild(superscriptElement);
 }
+
+export async function loadHeaderFooter() {
+  let header = document.querySelector("header");
+  const headerTemplate = await loadTemplate("../public/partials/header.html"); 
+  renderWithTemplate(headerTemplate,header)
+  
+  const footerTemplate = await loadTemplate("../public/partials/footer.html");
+  let footer = document.querySelector("footer");
+  renderWithTemplate(footerTemplate,footer)
+}
+
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if(callback) {
+      callback(data);
+  }
+}
+
+async function loadTemplate(path) {
+  let content = await fetch(path)
+  let text = await content.text();
+  return text
+}

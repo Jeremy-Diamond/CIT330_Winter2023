@@ -98,7 +98,7 @@ button {
 
 /* Cart icon styles */
 #cart-icon {
-  width: 40px;  
+  width: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -137,31 +137,37 @@ button {
   to {
     transform: rotate(360deg);
   }
-
 }
-.ss-icon {  
+.ss-icon {
   width: 30px;
   height: 30px;
   font-size: 75%;
-  background-color: #f3a154;  
+  background-color: #f3a154;
   color: black;
-  border-radius: 50%;  
+  border-radius: 50%;
   padding: 17%;
-  transform: translate(15px, -42px); /* This element has to be after the icon for it to be stacked on top*/
+  transform: translate(
+    15px,
+    -42px
+  ); /* This element has to be after the icon for it to be stacked on top*/
 }
 
-.big-drop {
-  animation: drop 1.5s ease-in;
+/* START Add to cart button animation*/
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-@keyframes drop {
-  0% {transform: rotate(25deg);}
-  20% {transform:rotate(-25deg);}
-  40% {transform: rotate(25deg);}
-  60% { transform: rotate(25deg); top:550px;}
-  100% { transform: rotate(-25deg);top:100%;}
+.addedToCart {
+  animation: fadeOut 0.8s linear forwards;
 }
 
+/* Add to cart button animation END*/
 
 .ss-icon:hover {
   background-color: #2ec1ea;
@@ -204,8 +210,7 @@ button {
   margin: 0.5em 0;
 }
 
-
-.product-card__discount{
+.product-card__discount {
   margin-left: 20px;
   color: red;
   font-weight: bolder;

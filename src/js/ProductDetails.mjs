@@ -13,7 +13,9 @@ function productTemplate(product) {
         />
         
         <p class="product-card__price">$${product.FinalPrice}
-        <span class="product-card__discount">After a $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)} discount! </span>
+        <span class="product-card__discount">After a $${(
+          product.SuggestedRetailPrice - product.FinalPrice
+        ).toFixed(2)} discount! </span>
         </p>
         <p class="product__color">${product.Colors[0].ColorName}</p>
 
@@ -61,13 +63,12 @@ export default class ProductDetails {
     if (cart === null) {
       cart = this.product;
       cart.Qty = 1; // I set the qty to one for later steps
-      cart = [cart]
+      cart = [cart];
     } else if (!Array.isArray(cart)) {
       // If cart has only one item
       if (this.product.Id === cart.Id) {
         // See if this.id is the same as what is in the cart
         cart.Qty += 1;
-        
       } else {
         this.product.Qty = 1;
         cart = [this.product].concat(cart);
@@ -79,24 +80,22 @@ export default class ProductDetails {
       this.product.Qty = 1;
       cart = [this.product].concat(cart);
     }
-    
+
     //add cart adjustments to local storage
     setLocalStorage("so-cart", cart);
-    
-    // Spin Cart backpact so user knows something happened. 
+
+    // Spin Cart backpact so user knows something happened.
     let cartIcon = document.querySelector(".cardIcon");
     cartIcon.classList.add("animateIcon");
-    setTimeout(function(){
+    setTimeout(function () {
       cartIcon.classList.remove("animateIcon");
-  }, 1000);
+    }, 1000);
 
-  // drop the button for fun!!!
+    // drop the button for fun!!!
 
-  bigDrop()
-
-
+    addToCartButton();
   }
-  
+
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML("afterBegin", productTemplate(this.product));
@@ -105,15 +104,13 @@ export default class ProductDetails {
 
 // Drop button function
 
-function bigDrop() {
+function addToCartButton() {
   const dropCartButton = document.querySelector("#addToCart");
-    dropCartButton.classList.add("big-drop")
-    dropCartButton.innerHTML = "Adding to Cart";
-    dropCartButton.addEventListener("animationend", removeClass)
-    function removeClass(){
-        dropCartButton.classList.remove("big-drop")
-        dropCartButton.innerHTML = "Add to Cart"
-    }
+  dropCartButton.classList.add("addedToCart");
+  dropCartButton.innerHTML = "Adding to Cart";
+  dropCartButton.addEventListener("animationend", removeClass);
+  function removeClass() {
+    dropCartButton.classList.remove("addedToCart");
+    dropCartButton.innerHTML = "Add to Cart";
+  }
 }
-
-
