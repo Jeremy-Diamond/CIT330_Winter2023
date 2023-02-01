@@ -56,10 +56,10 @@ export function getSuperscript(elementId) {
 
 export async function loadHeaderFooter() {
   let header = document.querySelector("header");
-  const headerTemplate = await loadTemplate("../public/partials/header.html"); 
+  const headerTemplate = await loadTemplate("../partials/header.html"); 
   renderWithTemplate(headerTemplate,header)
   
-  const footerTemplate = await loadTemplate("../public/partials/footer.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
   let footer = document.querySelector("footer");
   renderWithTemplate(footerTemplate,footer)
 }
