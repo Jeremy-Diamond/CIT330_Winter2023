@@ -30,6 +30,11 @@ header {
   justify-content: space-between;
   padding: 0 10px;
 }
+
+.alert-list {
+  text-align: center;
+}
+
 .logo {
   line-height: 60px;
   width: 245px;
@@ -327,3 +332,86 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Breadcrumb Style Start */
+
+.crumbs {
+  text-align: left;
+}
+
+.crumbs ul {
+  list-style: none;
+  display: inline-table;
+}
+
+.crumbs li {
+  display: inline;
+}
+
+.crumbs a {
+  display: block;
+  float: left;
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 2.5px 8px 2.5px 20px;
+  position: relative;
+  margin: 0 7px 0 0;
+
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.crumbs a:after {
+  content: "";
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid var(--primary-color);
+  position: absolute;
+  right: -14px;
+  top: 0;
+  z-index: 1;
+}
+.crumbs a:before {
+  content: "";
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid white;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.crumbs ul li:first-child a {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.crumbs ul li:first-child a:before {
+  display: none;
+}
+
+.crumbs ul li:last-child a {
+  padding-right: 12px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.crumbs ul li:last-child a:after {
+  display: none;
+}
+
+.crumbs ul li a:hover {
+  color: black;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#active-crumb a {
+  background-color: var(--secondary-color);
+}
+
+#active-crumb a:after {
+  border-left: 15px solid var(--secondary-color);
+}
+/* Breadcrumb Style End */

@@ -1,8 +1,7 @@
 [
   {
-    "message": "testing message 1",
-    "background": "darkblue",
+    "message": "This is a very important message!",
+    "background": "#f0a868",
     "color": "white"
-  },
-  { "message": "testing message 2", "background": "red", "color": "black" }
+  }
 ]
