@@ -103,7 +103,7 @@ function removeFromCart(id) {
 
 function updateItemQuantity(id, value) {
   const cartItems = getLocalStorage("so-cart");
-  cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = value;
+  cartItems[cartItems.findIndex((item) => item.Id === id)].Qty = parseInt(value);
   setLocalStorage("so-cart", cartItems);
 
   const cart = new ShoppingCart("so-cart", ".product-list");
