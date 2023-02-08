@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, setProperCase } from "./utils.mjs";
 
 function productCardTemplate(product) {
     return `<li class="product-card">
@@ -21,8 +21,9 @@ export default class ProductList {
     }
     async init() {
         const list = await this.dataSource.getData(this.category);
+        document.querySelector("#products-crumb").innerHTML = `${setProperCase(this.category)} (${list.length} Items)`
         this.renderList(list);
-        document.querySelector(".title").innerHTML = this.category;
+        document.querySelector(".title").innerHTML = setProperCase(this.category);
     }
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);

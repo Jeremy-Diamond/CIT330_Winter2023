@@ -77,3 +77,7 @@ async function loadTemplate(path) {
   let text = await content.text();
   return text
 }
+
+export function setProperCase(string){
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
