@@ -20,9 +20,10 @@ export default class ProductList {
         this.listElement = listElement;
     }
     async init() {
-        let list = await this.dataSource.getData();
-        this.filterList(list);
+        const list = await this.dataSource.getData(this.category);
+        // this.filterList(list);
         this.renderList(list);
+        
     }
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);

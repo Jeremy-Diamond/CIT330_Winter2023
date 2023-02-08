@@ -134,6 +134,18 @@ button {
   animation-duration: 850ms;
   animation-iteration-count: 1;
 }
+.product-category{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  list-style: none;
+  /* outline: 1px solid red; */
+  text-align: center;
+}
+.category-icon {
+  width: 100px;
+  /* outline: 1px solid blue; */
+  justify-self: center;
+}
 
 @keyframes spin {
   from {
