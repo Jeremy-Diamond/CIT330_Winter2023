@@ -1,5 +1,3 @@
-import { getSuperscript, loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
-
-getSuperscript("cart-icon");

@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getSuperscript } from "./utils.mjs";
 
 export default class ShoppingCart {
   constructor(key, parentSelector) {
@@ -20,9 +20,10 @@ export default class ShoppingCart {
         localStorage.setItem("so-cart", JSON.stringify(cart));
         localStorage.setItem("so-ss", iconTotal);
       }
-
+        
       let cartTotal = document.querySelector(".cart-total");
       cartTotal.innerHTML = `Total $${total.toFixed(2)}`;
+  
 
       //Show or hide  total based on total
       if (total > 0) {
@@ -100,6 +101,7 @@ function removeFromCart(id) {
   document.querySelector(".product-list").innerHTML = ""
   const cart = new ShoppingCart("so-cart", ".product-list");
   cart.renderCartContents();
+  getSuperscript("cart-icon");
 }
 
 function updateItemQuantity(id, value) {
@@ -109,4 +111,7 @@ function updateItemQuantity(id, value) {
 
   const cart = new ShoppingCart("so-cart", ".product-list");
   cart.renderCartContents();
+ 
+  getSuperscript("cart-icon");
+  
 }

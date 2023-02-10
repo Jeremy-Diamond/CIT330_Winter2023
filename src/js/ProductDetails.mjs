@@ -114,5 +114,6 @@ function addToCartButton() {
   function removeClass() {
     dropCartButton.classList.remove("addedToCart");
     dropCartButton.innerHTML = "Add to Cart";
+    getSuperscript("cart-icon");
   }
 }
