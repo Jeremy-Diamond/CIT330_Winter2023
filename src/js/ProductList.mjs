@@ -24,8 +24,39 @@ export default class ProductList {
         document.querySelector("#products-crumb").innerHTML = `${setProperCase(this.category)} (${list.length} Items)`
         this.renderList(list);
         document.querySelector(".title").innerHTML = setProperCase(this.category);
-    }
+        
+
+
+        document.querySelector("#sort-options")
+        .addEventListener("change", this.sortList);
+        }
+
+        
+
+      
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
+
 }
+
+
+
+
+function sortList() {
+    console.log(this.list)
+            switch (this.list) {
+                case "name-asc":
+                this.list.sort((a, b) => (a.Name > b.Name ? 1 : -1));
+                break;
+                case "name-desc":
+                this.list.sort((a, b) => (a.Name < b.Name ? 1 : -1));
+                break;
+                case "price-asc":
+                this.list.sort((a, b) => a.age - b.age);
+                break;
+                case "price-desc":
+                this.list.sort((a, b) => b.age - a.age);
+                break;
+            }
+        };

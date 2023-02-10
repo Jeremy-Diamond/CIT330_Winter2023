@@ -52,7 +52,6 @@ export default class ProductDetails {
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
-
     document.querySelector("#product-crumb").innerHTML = this.product.Name
   }
 
