@@ -47,11 +47,16 @@ export function renderListWithTemplate(
 
 export function getSuperscript(elementId) {
   let superscript = getLocalStorage("so-ss");
-  const element = document.getElementById(elementId);
-  const superscriptElement = document.createElement("div");
-  superscriptElement.setAttribute("class", "ss-icon");
-  superscriptElement.innerHTML = superscript;
-  element.appendChild(superscriptElement);
+  document.query
+  if (document.querySelector(".ss-icon")) {
+    document.querySelector(".ss-icon").innerHTML = superscript;
+  } else {
+    const element = document.getElementById(elementId);
+    const superscriptElement = document.createElement("div");
+    superscriptElement.setAttribute("class", "ss-icon");    
+    superscriptElement.innerHTML = superscript;
+    element.appendChild(superscriptElement);
+  }    
 }
 
 export async function loadHeaderFooter() {
@@ -62,7 +67,12 @@ export async function loadHeaderFooter() {
   const footerTemplate = await loadTemplate("../partials/footer.html");
   let footer = document.querySelector("footer");
   renderWithTemplate(footerTemplate,footer)
+
+  setTimeout(function () {
+    getSuperscript("cart-icon");
+  }, 500);
 }
+
 
 
 export function renderWithTemplate(template, parentElement, data, callback) {
