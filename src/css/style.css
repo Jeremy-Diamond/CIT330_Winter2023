@@ -96,6 +96,11 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
 }
+button a {
+  text-decoration: none;
+  color: white;
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
