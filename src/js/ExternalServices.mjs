@@ -1,4 +1,5 @@
 const baseURL = "https://wdd330-backend.onrender.com/";
+//const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
 
 function convertToJson(res) {
   if (res.ok) {
@@ -28,9 +29,9 @@ export default class ExternalServices {
   async checkout(payload) {
     
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
     };
