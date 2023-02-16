@@ -70,11 +70,11 @@ export default class CheckoutProcess {
         let orderSummary = document.querySelector(".order-details");
         
         orderSummary.innerHTML = `
-        <div><p>Item Subtotal (${this.quantity}) $${this.itemTotal.toFixed(2)}</p>
-        <p>Tax $${this.tax.toFixed(2)}</p>
-        <p>Shipping Estimate $${this.shipping.toFixed(2)}</p>
-        <p><strong>Order Total $${this.orderTotal.toFixed(2)}</strong></p>
-        <div/>`;
+        <div class="summary-titles">Item Subtotal (${this.quantity}) </div><div class="summary-totals">$${this.itemTotal.toFixed(2)}</div>
+        <div class="summary-titles">Tax </div><div class="summary-totals">$${this.tax.toFixed(2)}</div>
+        <div class="summary-titles">Shipping Estimate </div><div class="summary-totals">$${this.shipping.toFixed(2)}</div>
+        <div class="summary-titles"><strong>Order Total </div><div class="summary-totals">$${this.orderTotal.toFixed(2)}</div></strong>
+       `;
         localStorage.setItem("so-ss", 0);
 
         

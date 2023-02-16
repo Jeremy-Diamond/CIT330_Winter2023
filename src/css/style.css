@@ -143,12 +143,10 @@ button a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   list-style: none;
-  /* outline: 1px solid red; */
   text-align: center;
 }
 .category-icon {
   width: 100px;
-  /* outline: 1px solid blue; */
   justify-self: center;
 }
 
@@ -432,3 +430,64 @@ footer {
   border-left: 15px solid var(--secondary-color);
 }
 /* Breadcrumb Style End */
+
+/* Form style start */
+
+form {
+  padding: .5rem 2%;
+  min-height: 20rem;
+  background-color: var(--light-grey);
+  margin: 1rem auto ;
+  max-width: 500px;
+  width: 90%;
+ }
+
+form fieldset {
+  margin: 1rem;
+  padding: 1rem;
+ }
+
+form legend {
+  font-family: var(--font-body);
+  font-size: var(--large-font);
+  color: var(--dark-grey);
+  padding: .5rem; 
+  margin: 0 1rem;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: .75rem; 
+    font-family: var(--font-body);
+    border: 0.5px var(--primary-color) solid;
+    border-radius: 1rem;
+    font-size:var(--font-base);
+}
+div.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+.summary-titles {
+  padding: 5px;
+}
+.summary-totals {
+  padding: 5px;
+  text-align: end;
+}
+
+/* :root {
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  /* colors */
+  /* --primary-color: #f0a868;
+  --secondary-color: #525b0f;
+  --tertiary-color: #a4b8c4;
+  --light-grey: #d0d0d0;
+  --dark-grey: #303030; */
+
+  /* sizes */
+  /* --font-base: 18px;
+  --small-font: 0.8em;
+  --large-font: 1.2em; */
