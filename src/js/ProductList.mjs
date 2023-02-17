@@ -10,6 +10,7 @@ function productCardTemplate(product) {
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
+    <button id="show-details" data-id="${product.Id}">Show Details </button>
     </li>`;
 }
 
@@ -34,6 +35,27 @@ export default class ProductList {
     });
     this.renderList(list);
     document.querySelector(".title").innerHTML = setProperCase(this.category);
+
+  
+    const height = 600;
+    const width = 600;
+    const left = (screen.availWidth - width) / 2;
+    const top = (screen.availHeight - height) / 2;
+
+
+   const AllDetailButtons = document.querySelectorAll("#show-details"); 
+    AllDetailButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    const windowFeatures = `height=${height},width=${width},scrollbars=yes,resizable=yes,top=${top},left=${left}`;
+    const popUp = window.open(`../product_pages/quicklook.html?product=${button.dataset.id}`, "_blank", windowFeatures);
+    popUp.addEventListener("beforeunload", function() {
+      console.log("test")
+      location.reload();
+    });
+  });
+});
+
+
   }
 
   renderList(list) {
@@ -53,6 +75,8 @@ function sortList(sortCriteria, list) {
       list.sort((a, b) => (a.NameWithoutBrand < b.NameWithoutBrand ? 1 : -1));
       break;
     case "price-asc":
+);
+
       list.sort((a, b) => a.FinalPrice - b.FinalPrice);
       break;
     case "price-desc":
