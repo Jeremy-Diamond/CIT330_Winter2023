@@ -462,7 +462,9 @@ form input {
     border: 0.5px var(--primary-color) solid;
     border-radius: 1rem;
     font-size:var(--font-base);
+    outline: 0;
 }
+
 div.summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -476,7 +478,7 @@ div.summary {
   text-align: end;
 }
 
-
+/* Newsletter sign up */
 .form {
   display: flex;
   flex-direction: column;
@@ -521,7 +523,7 @@ div.summary {
   color: white;
   padding: 1em 2em;
 }
-
+/* Form style end */
 
 
   @media only screen and (min-width: 550px) {
