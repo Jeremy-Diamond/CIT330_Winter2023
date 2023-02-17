@@ -72,15 +72,13 @@ function sortList(sortCriteria, list) {
       list.sort((a, b) => (a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1));
       break;
     case "name-desc":
-      list.sort((a, b) => (a.NameWithoutBrand < b.NameWithoutBrand ? 1 : -1));
+      list.sort((a, b) => (a.Name < b.Name ? 1 : -1));
       break;
     case "price-asc":
-);
-
-      list.sort((a, b) => a.FinalPrice - b.FinalPrice);
+      list.sort((a, b) => a.ListPrice - b.ListPrice);
       break;
     case "price-desc":
-      list.sort((a, b) => b.FinalPrice - a.FinalPrice);
+      list.sort((a, b) => b.ListPrice - a.ListPrice);
       break;
   }
 }
