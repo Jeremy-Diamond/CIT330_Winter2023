@@ -8,7 +8,7 @@ function productCardTemplate(product) {
     alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
-    <h2 class="card__name">${product.Name}</h2>
+    <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
     <button id="show-details" data-id="${product.Id}">Show Details </button>
     </li>`;
@@ -72,13 +72,15 @@ function sortList(sortCriteria, list) {
       list.sort((a, b) => (a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1));
       break;
     case "name-desc":
-      list.sort((a, b) => (a.Name < b.Name ? 1 : -1));
+      list.sort((a, b) => (a.NameWithoutBrand < b.NameWithoutBrand ? 1 : -1));
       break;
     case "price-asc":
-      list.sort((a, b) => a.ListPrice - b.ListPrice);
+);
+
+      list.sort((a, b) => a.FinalPrice - b.FinalPrice);
       break;
     case "price-desc":
-      list.sort((a, b) => b.ListPrice - a.ListPrice);
+      list.sort((a, b) => b.FinalPrice - a.FinalPrice);
       break;
   }
 }

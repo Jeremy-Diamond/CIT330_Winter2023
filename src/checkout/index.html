@@ -9,6 +9,7 @@
     <title>Sleep Outside | Checkout</title>
 
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
   </head>
 
   <body>
@@ -24,6 +25,63 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form name="checkout" >
+          <fieldset>
+            <legend>Shipping</legend>
+
+            <label for="fname">First Name</label><br /><input
+              type="text"
+              name="fname"
+              required
+            /><br />
+            <label for="lname">Last Name</label><br /><input
+              name="lname"
+              required
+            /><br />
+            <label for="street">Street Address</label><br /><input
+              name="street"
+              required
+            /><br />
+            <label for="city">City</label><br /><input
+              name="city"
+              required
+            /><br />
+            <label for="state">State</label><br /><input
+              name="state"
+              required
+            /><br />
+            <label for="zip">Zip Code</label><br /><input
+              name="zip"
+              required
+            /><br />
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label for="cardNumber">Card Number</label><br /><input
+              name="cardNumber"
+              required
+            /><br />
+            <label for="expiration">Expiration Date (MM/YY)</label><br /><input
+              name="expiration"
+              type="text"
+              pattern="(?:0[1-9]|1[0-2])/[0-9]{2}"
+              placeholder="MM/YY"
+              required
+            /><br />
+            <label for="code">CVV Code</label><br /><input
+              name="code"
+              required
+            /><br />
+          </fieldset>
+          <fieldset>
+            <legend>Order Summary</legend>
+            <div class="order-details">
+              <div class="subtotal">Item Subtotal</div>
+
+            </div>
+          </fieldset>
+          <button id="checkoutSubmit" type="submit">Let's Go Camping</button>
+        </form>
       </section>
     </main>
 
