@@ -20,5 +20,8 @@ myCheckout.init();
 document.forms["checkout"].addEventListener("submit", (e) => {
   e.preventDefault();
   // e.target would contain our form in this case
-  myCheckout.checkout();
+  let myForm = document.forms[0];
+  let chk_status = myForm.checkValidity();
+  myForm.reportValidity();
+  if (chk_status) myCheckout.checkout();
 });
