@@ -31,6 +31,9 @@ header {
   padding: 0 10px;
 }
 
+a {
+  text-decoration: none;
+}
 .alert-list {
   text-align: center;
 }
@@ -178,15 +181,18 @@ button a {
   background-color: #f3a154;
   color: black;
   border-radius: 50%;
-  padding: 17%;
-  transform: translate(
-    15px,
-    -42px
-  ); /* This element has to be after the icon for it to be stacked on top*/
+  padding: 25%;
+  transform: translate(15px, -42px); 
+  /* This element has to be after the icon for it to be stacked on top*/
 }
 
-/* START Add to cart button animation*/
+.ss-icon:hover {
+  background-color: #2ec1ea;
+  color: black;
+}
+/* End cart icon styles */
 
+/* START Add to cart button animation*/
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -201,12 +207,6 @@ button a {
 }
 
 /* Add to cart button animation END*/
-
-.ss-icon:hover {
-  background-color: #2ec1ea;
-  color: black;
-}
-/* End cart icon styles */
 
 .mission {
   padding: 0 0.5em;
@@ -340,27 +340,12 @@ button a {
 .hide-cart-total {
   visibility: hidden;
 }
-/* End Cart footer style*/
-
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .mission {
-    font-size: 1.2em;
-  }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 1fr 6fr 0.95fr 0.1fr;
-  }
-}
 
 footer {
   font-size: var(--small-font);
   padding: 1em;
 }
-
+/* End Cart footer style*/
 /* Breadcrumb Style Start */
 
 .crumbs {
@@ -445,7 +430,6 @@ footer {
 /* Breadcrumb Style End */
 
 /* Form style start */
-
 form {
   padding: 0.5rem 2%;
   background-color: var(--light-grey);
@@ -535,9 +519,22 @@ div.summary {
   color: white;
   padding: 1em 2em;
 }
-/* Form style end */
+/* Form and Newsletter style end */
+
 
 @media only screen and (min-width: 550px) {
+  body {
+    max-width: 1080px;
+    margin: auto;
+  }
+  .mission {
+    font-size: 1.2em;
+  }
+  .cart-card {
+    font-size: inherit;
+    grid-template-columns: 1fr 6fr 0.95fr 0.1fr;
+  }
+  
   .form {
     flex-direction: row;
     max-width: 700px;
