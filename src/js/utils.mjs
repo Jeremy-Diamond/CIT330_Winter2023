@@ -52,10 +52,15 @@ export function getSuperscript(elementId) {
     document.querySelector(".ss-icon").innerHTML = superscript;
   } else {
     const element = document.getElementById(elementId);
+    
     const superscriptElement = document.createElement("div");
-    superscriptElement.setAttribute("class", "ss-icon");    
+    const newA = document.createElement("a");
+    superscriptElement.setAttribute("class", "ss-icon");
+    newA.setAttribute("href", "/cart/index.html");   
     superscriptElement.innerHTML = superscript;
-    element.appendChild(superscriptElement);
+    element.appendChild(newA);
+    newA.appendChild(superscriptElement);
+    
   }    
 }
 
