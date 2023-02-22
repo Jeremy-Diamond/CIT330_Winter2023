@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, getSuperscript } from "./utils.mjs";
+import { alertMessage, setLocalStorage, getLocalStorage, getSuperscript } from "./utils.mjs";
 
 function productTemplate(product) {
   return `<section class="product-detail">
@@ -95,7 +95,8 @@ export default class ProductDetails {
     // drop the button for fun!!!
 
     addToCartButton();
-  }
+    alertMessage("Product Added to Cart")
+    }
 
   renderProductDetails(selector) {
     const element = document.querySelector(selector);

@@ -5,8 +5,6 @@
 // console.log(elem1.value);
 // console.log(elem2.value);
 
-
-
 // myForm.onsubmit = async (e) => {
 //     e.preventDefault();
 
@@ -19,4 +17,3 @@
 
 //     alert(result.message);
 //   };
-
