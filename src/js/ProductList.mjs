@@ -1,4 +1,7 @@
 import { renderListWithTemplate, setProperCase } from "./utils.mjs";
+import ProductDetails from "./ProductDetails.mjs";
+import ExternalServices from "./ExternalServices.mjs";
+import { doc } from "prettier";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -36,7 +39,7 @@ export default class ProductList {
     this.renderList(list);
     document.querySelector(".title").innerHTML = setProperCase(this.category);
 
-  
+  /*
     const height = 600;
     const width = 600;
     const left = (screen.availWidth - width) / 2;
@@ -54,7 +57,61 @@ export default class ProductList {
     });
   });
 });
+*/
 
+const AllDetailButtons = document.querySelectorAll("#show-details"); 
+const modalWindow = document.querySelector('.modal-window');
+
+AllDetailButtons.forEach(button =>{
+  button.addEventListener("click", function() {
+    
+      const productToDisplay = list.find((myproduct) => myproduct.Id === button.dataset.id)
+      const modalContent = document.querySelector(".modal-content");
+      modalContent.innerHTML = ""
+
+      const productName = document.createElement("h3");
+      productName.innerHTML = productToDisplay.NameWithoutBrand;
+      modalContent.appendChild(productName);
+
+      modalContent.innerHTML =
+         
+      `<h3>${productToDisplay.Brand.Name}</h3>
+
+      <h2 class="divider">${productToDisplay.Name}</h2>
+
+      <img
+        class="divider"
+        src="${productToDisplay.Images.PrimaryLarge}"
+        alt="${productToDisplay.NameWithoutBrand}"
+      />
+      
+      <p class="product-card__price">$${productToDisplay.FinalPrice}
+      <span class="product-card__discount">After a $${(
+        productToDisplay.SuggestedRetailPrice - productToDisplay.FinalPrice
+      ).toFixed(2)} discount! </span>
+      </p>
+      <p class="product__color">${productToDisplay.Colors[0].ColorName}</p>
+
+      <p class="product__description">${productToDisplay.DescriptionHtmlSimple}</p>`
+
+      const closeButton = document.createElement("button");
+      closeButton.innerHTML = "Close";
+      closeButton.classList.add("close-button")
+      closeButton.addEventListener('click', () => {
+        modalWindow.style.display = 'none';
+      });
+      modalContent.appendChild(closeButton);
+
+      console.log(productToDisplay)
+      modalWindow.style.display = 'block';
+    });
+  });
+
+const closeButton = document.querySelector('.close-button');
+
+closeButton.addEventListener('click', () => {
+  modalWindow.style.display = 'none';
+});
 
   }
 
