@@ -462,7 +462,7 @@ form input {
   outline: 0;
 }
 
-div.summary {
+div.order-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
