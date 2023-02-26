@@ -2,14 +2,20 @@
     {
       "username": "john",
       "email": "john@this.com",
-      "phone": "777-888-9999",
+      "address": "123 W 600 S",
+      "city": "Sandy",
+      "state": "Utah",
+      "zip": "84040",
       "password": "password123",
       "avatar": ""
     },
     {
       "username": "jane",
       "email": "jane@this.com",
-      "phone": "444-555-6666",
+      "address": "123 W 600 S",
+      "city": "Sandy",
+      "state": "Utah",
+      "zip": "84040",
       "password": "password456",
       "avatar": ""
     }
