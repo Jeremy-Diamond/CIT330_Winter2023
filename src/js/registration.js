@@ -51,28 +51,29 @@ signupLink.onclick = (()=>{
 //   // Get form values
 //   const name = document.querySelector('#name').value;
 //   const email = document.querySelector('#email').value;
-//   const phone = document.querySelector('#phone').value;
 //   const password = document.querySelector("#password").value;
 
 //   // Validate form input
-//   if (name === "" || email === "" || phone === ""  || password === "") {
+//   if (name === "" || email === "" || password === "") {
 //     showAlert('Please fill in all fields', 'error');
 //   } else {
 //     // Create customer object
 //     const customer = {
 //       name: name,
 //       email: email,
-//       phone: phone,
 //       password: password
 //     };
     
 //     // Add customer to database
 //     addCustomer(customer);
     
-//     // Show success message
-//     showAlert('Customer added', 'success');
+    // // Show success message
+    // showAlert('Customer added', 'success');
     
-//     // Clear form
-//     customerForm.reset();
+    // // Clear form
+    // customerForm.reset();
 //   }
 // });
+
+
+
