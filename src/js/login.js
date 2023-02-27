@@ -4,19 +4,23 @@ const loginForm = document.querySelector('#login-form');
 // Define the user database
 const users = [
   {
-    username: 'john',
-    password: 'password123'
+    "name": "john",
+    "email": "john@this.com",
+    "password": "password123",
+    "avatar": ""
   },
   {
-    username: 'jane',
-    password: 'password456'
+    "name": "jane",
+    "email": "jane@this.com",
+    "password": "password456",
+    "avatar": ""
   }
 ];
 
 // Function to check if user exists in the database
-function checkUser(username, password) {
+function checkUser(name, password) {
   for (let i = 0; i < users.length; i++) {
-    if (users[i].username === username && users[i].password === password) {
+    if (users[i].name === name && users[i].password === password) {
       return true;
     }
   }
