@@ -19,61 +19,35 @@ signupLink.onclick = (()=>{
   return false;
 });
 
-// // Define the customer registration form
-// const customerForm = document.querySelector('#customer-form');
+// Send data to user file
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .getElementById("myForm")
+    .addEventListener("submit", handleForm);
+});
 
-// // Define the customer database
-// const customers = [];
+async function handleForm(ev) {
+  ev.preventDefault(); // This lets JS handle the form and prevents the page from reloading
+  let form = ev.target; // ev.target is the form
+  let formData = new FormData(form);
 
-// // Function to add customer to the database
-// function addCustomer(customer) {
-//   customers.push(customer);
-// }
-
-// // Function to display an alert message
-// function showAlert(message, className) {
-//   const div = document.createElement('div');
-//   div.className = `alert ${className}`;
-//   div.appendChild(document.createTextNode(message));
-//   const container = document.querySelector('.container');
-//   const form = document.querySelector('#customer-form');
-//   container.insertBefore(div, form);
-//   // Remove alert after 3 seconds
-//   setTimeout(function() {
-//     document.querySelector('.alert').remove();
-//   }, 3000);
-// }
-
-// // Event listener for customer registration form submission
-// customerForm.addEventListener('submit', function(e) {
-//   e.preventDefault();
-
-//   // Get form values
-//   const name = document.querySelector('#name').value;
-//   const email = document.querySelector('#email').value;
-//   const password = document.querySelector("#password").value;
-
-//   // Validate form input
-//   if (name === "" || email === "" || password === "") {
-//     showAlert('Please fill in all fields', 'error');
-//   } else {
-//     // Create customer object
-//     const customer = {
-//       name: name,
-//       email: email,
-//       password: password
-//     };
-    
-//     // Add customer to database
-//     addCustomer(customer);
-    
-    // // Show success message
-    // showAlert('Customer added', 'success');
-    
-    // // Clear form
-    // customerForm.reset();
-//   }
-// });
-
-
-
+  // convert form data to JSON 
+  const entries = formData.entries(); 
+  const data = Object.fromEntries(entries); 
+  
+  // load the existing JSON data from the file 
+  fetch("../users/users.json") 
+    .then(response => response.json()) 
+    .then(existingData => { 
+      // append the new data to the existing data 
+      const newData = { ...existingData, ...data }; 
+      // save the updated data to the file 
+      fetch("../users/users.json", { 
+        method: "PUT", 
+        body: JSON.stringify(newData) 
+      }) 
+        .then(response => console.log(response)) 
+        .catch(error => console.error(error)); 
+      }) 
+    .catch(error => console.error(error));
+}      
