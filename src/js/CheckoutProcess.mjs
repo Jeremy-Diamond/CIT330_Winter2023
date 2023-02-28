@@ -75,7 +75,7 @@ export default class CheckoutProcess {
         <div class="summary-titles">Shipping Estimate </div><div class="summary-totals">$${this.shipping.toFixed(2)}</div>
         <div class="summary-titles"><strong>Order Total </div><div class="summary-totals">$${this.orderTotal.toFixed(2)}</div></strong>
        `;
-        localStorage.setItem("so-ss", 0);
+        localStorage.setItem("so-ss", []);
 
         
     }
@@ -96,7 +96,7 @@ export default class CheckoutProcess {
         //const res = await services.checkout(json);
         //console.log(res);
         setLocalStorage("so-cart", [])
-        setLocalStorage("so-ss", [])
+        
         window.location.href = "/checkout/success.html";
         //location.assign("/checkout/success.html")    //Instructor code
         } catch (err) {
