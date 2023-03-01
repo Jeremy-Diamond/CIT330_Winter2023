@@ -76,6 +76,8 @@ export async function loadHeaderFooter() {
   setTimeout(function () {
     getSuperscript("cart-icon");
   }, 500);
+
+  
 }
 
 
