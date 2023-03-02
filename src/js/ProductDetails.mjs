@@ -17,6 +17,8 @@ function productTemplate(product) {
         </p>
         <p class="product__color">${product.Colors[0].ColorName}</p>
 
+        ${createColorSwatch(product)}
+
         <p class="product__description">${product.DescriptionHtmlSimple}</p>
 
         <div class="product-detail__add">
@@ -276,6 +278,30 @@ function addToCartButton() {
         this.dots[this.slideIndex - 1].className += " active";
       }
     };
+
+
+    // add color swatch
+
+   function createColorSwatch(product){
+    if (product.Colors.length > 1) {
+      
+      const colorSwatchContainor = document.createElement("div")
+      console.log(product)
+      
+      product.Colors.forEach(color => {
+        const swatch = document.createElement("div");
+        swatch.style.backgroundColor = color.ColorName
+        swatch.innerHTML = color.ColorName
+        swatch.classList.add("color")
+        colorSwatchContainor.appendChild(swatch);
+      });
+
+      return colorSwatchContainor.innerHTML
+      
+    } else {
+      return
+    }
+   }
     
     // Call the init function when the page finishes loading
     window.addEventListener("load", function() {
