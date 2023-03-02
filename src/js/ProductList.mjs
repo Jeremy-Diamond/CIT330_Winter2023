@@ -1,7 +1,4 @@
 import { renderListWithTemplate, setProperCase } from "./utils.mjs";
-import ProductDetails from "./ProductDetails.mjs";
-import ExternalServices from "./ExternalServices.mjs";
-import { doc } from "prettier";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -39,28 +36,8 @@ export default class ProductList {
     this.renderList(list);
     document.querySelector(".title").innerHTML = setProperCase(this.category);
 
-  /*
-    const height = 600;
-    const width = 600;
-    const left = (screen.availWidth - width) / 2;
-    const top = (screen.availHeight - height) / 2;
-
-
-   const AllDetailButtons = document.querySelectorAll("#show-details"); 
-    AllDetailButtons.forEach(button => {
-  button.addEventListener("click", function() {
-    const windowFeatures = `height=${height},width=${width},scrollbars=yes,resizable=yes,top=${top},left=${left}`;
-    const popUp = window.open(`../product_pages/quicklook.html?product=${button.dataset.id}`, "_blank", windowFeatures);
-    popUp.addEventListener("beforeunload", function() {
-      console.log("test")
-      location.reload();
-    });
-  });
-});
-*/
-
 const AllDetailButtons = document.querySelectorAll("#show-details"); 
-const modalWindow = document.querySelector('.modal-window');
+const modalWindow = document.querySelector(".modal-window");
 
 AllDetailButtons.forEach(button =>{
   button.addEventListener("click", function() {
@@ -97,21 +74,15 @@ AllDetailButtons.forEach(button =>{
       const closeButton = document.createElement("button");
       closeButton.innerHTML = "Close";
       closeButton.classList.add("close-button")
-      closeButton.addEventListener('click', () => {
-        modalWindow.style.display = 'none';
+      closeButton.addEventListener("click", () => {
+        modalWindow.style.display = "none";
       });
       modalContent.appendChild(closeButton);
 
-      console.log(productToDisplay)
-      modalWindow.style.display = 'block';
+      //console.log(productToDisplay)
+      modalWindow.style.display = "block";
     });
   });
-
-const closeButton = document.querySelector('.close-button');
-
-closeButton.addEventListener('click', () => {
-  modalWindow.style.display = 'none';
-});
 
   }
 

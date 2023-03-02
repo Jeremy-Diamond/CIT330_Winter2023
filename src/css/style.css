@@ -182,7 +182,7 @@ button a {
   color: black;
   border-radius: 50%;
   padding: 25%;
-  transform: translate(15px, -42px); 
+  transform: translate(15px, -42px);
   /* This element has to be after the icon for it to be stacked on top*/
 }
 
@@ -429,6 +429,114 @@ footer {
 }
 /* Breadcrumb Style End */
 
+/* slideshow functionality START*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+
+.imageSlide {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 3px 0 0 3px;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The Align dotcontainor */
+.dot-container {
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* slideshow functionality START*/
+
 /* Form style start */
 form {
   padding: 0.5rem 2%;
@@ -521,7 +629,6 @@ div.summary {
 }
 /* Form and Newsletter style end */
 
-
 @media only screen and (min-width: 550px) {
   body {
     max-width: 1080px;
@@ -534,7 +641,7 @@ div.summary {
     font-size: inherit;
     grid-template-columns: 1fr 6fr 0.95fr 0.1fr;
   }
-  
+
   .form {
     flex-direction: row;
     max-width: 700px;
@@ -585,4 +692,3 @@ div.summary {
   background-color: white;
   padding: 20px;
 }
-
