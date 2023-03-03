@@ -15,7 +15,9 @@ function productTemplate(product) {
           product.SuggestedRetailPrice - product.FinalPrice
         ).toFixed(2)} discount! </span>
         </p>
-        <p class="product__color">${product.Colors[0].ColorName}</p>
+        <p class="product__color">Color Options</p>
+
+        ${createColorSwatch(product)}
 
         <p class="product__description">${product.DescriptionHtmlSimple}</p>
 
@@ -276,6 +278,46 @@ function addToCartButton() {
         this.dots[this.slideIndex - 1].className += " active";
       }
     };
+
+
+    // add color swatch
+
+   function createColorSwatch(product){
+    //if (product.Colors.length > 1) {
+      
+      const colorSwatchContainor = document.createElement("div")
+      console.log(product)
+      
+      product.Colors.forEach(color => {
+        const swatch = document.createElement("img");
+        swatch.classList.add("color-swatch")
+        swatch.src =  color.ColorChipImageSrc
+        colorSwatchContainor.appendChild(swatch);
+      });
+
+
+
+      return colorSwatchContainor.innerHTML
+
+   }
+
+   function addColorSwatchButtons(){
+    const selectedSwatch = document.querySelector(".color-swatch")
+    selectedSwatch.classList.add("active")
+    const swatches = document.querySelectorAll(".color-swatch")
+
+    swatches.forEach(swatch => {
+      swatch.addEventListener("click", () => {
+       
+         swatches.forEach(item => {
+          if (item.classList.contains("active")) {
+            item.classList.toggle("active")
+          }
+         });
+         swatch.classList.toggle("active")
+      })
+    });
+   }
     
     // Call the init function when the page finishes loading
     window.addEventListener("load", function() {
@@ -283,5 +325,7 @@ function addToCartButton() {
         if (document.querySelector(".dot-container")) { 
           slideshow.init();
         }
+        addColorSwatchButtons()
+
       }, 1000);
     });
