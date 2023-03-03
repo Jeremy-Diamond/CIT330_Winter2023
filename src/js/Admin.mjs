@@ -40,7 +40,7 @@ export default class Admin {
     async showOrders() {
         try {
           const orders = await this.services.getOrders(this.token);
-          console.log(orders);
+          // console.log(orders);
           this.mainElement.innerHTML = orderTemplate();
           const parent = document.querySelector("#orders tbody");
           // why not a template like we have done before?  The markup here was simple enough that I didn't think it worth the overhead...but a template would certainly work!
