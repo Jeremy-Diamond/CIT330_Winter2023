@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/style.css" />
     <script src="../js/main.js" type="module"></script>
     <script src="../js/registration.js" type="module"></script>
-    <!-- <script src="../js/login.js" type="module"></script> -->
   </head>
 
   <body>
@@ -68,44 +67,60 @@
               </div>
               <div class="field">
                 <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
+                  type="text"
+                  id="text"
+                  name="address"
+                  placeholder="Street Address"
                   required
                 />
               </div>
               <div class="field">
                 <input
-                  type="password"
-                  placeholder="Confirm password"
+                  type="text"
+                  id="text"
+                  name="city"
+                  placeholder="City"
                   required
                 />
               </div>
+              <div class="field">
+                <input
+                  type="text"
+                  id="text"
+                  name="state"
+                  placeholder="State"
+                  required
+                />
+              </div>
+              <div class="field">
+                <input
+                  type="text"
+                  id="text"
+                  name="zipcode"
+                  placeholder="Zip Code"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label>Select an avatar</label>
+                <select name="avatar" required>
+                  <option disabled selected>Select avatar</option>
+                  <option>😀</option>
+                  <option>😏</option>
+                  <option>🦀</option>
+                  <option>🐞</option>
+                  <option>🧟</option>
+                  <option>🧙‍♂️</option>
+                </select>
+              </div>
               <div class="field btn">
-                <div class="btn-layer">
-                  <!-- <button id="btnSubmit">Register</button> -->
-                </div>
+                <div class="btn-layer"></div>
                 <input type="submit" value="Register" />
               </div>
             </form>
           </div>
         </div>
       </div>
-
-      <!-- <form id="customer-form">
-               
-            <label >Name* <input type="text" name="name" id="name" required></label>                    
-            <label>Email* <input type="email" name="email" id="email" required placeholder="someone@email.com"></label>
-            <label>Phone Number* <input type="tel" name="phone" id="phone" required placeholder="123-555-1234" ></label>
-            <label>Password* <input type="txt" name="password" id="password" required placeholder="At least 8 characters"></label> -->
-      <!-- Avatar Selection -->
-      <!-- <button id="btnSubmit" type="submit" class="form-button">
-              Register
-            </button>
-            <label id="hidden"><input type="hidden" id="submissionTime" name="submissionTime"></label> 
-            
-        </form> -->
     </main>
 
     <footer></footer>
